@@ -31,8 +31,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This is a meta-package which will
-install museek daemon and all available clients.
+network. It is written in C++.
+
+This is a meta-package which will install museek daemon and all
+available clients.
 
 %package core
 Summary:	Museek+ core package
@@ -40,8 +42,10 @@ Group:		Applications/Networking
 
 %description core
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This package contains the museek
-daemon, setup tools and other essential files.
+network. It is written in C++.
+
+This package contains the museek daemon, setup tools and other
+essential files.
 
 %package bindings
 Summary:	Python bindings for Museek+
@@ -50,8 +54,9 @@ Requires:	%{name}-core = %{version}-%{release}
 
 %description bindings
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This package contains Python bindings
-for Museek+.
+network. It is written in C++.
+
+This package contains Python bindings for Museek+.
 
 %package mucous
 Summary:	A Curses Museek+ client
@@ -61,8 +66,9 @@ Requires:	%{name}-core = %{version}-%{release}
 
 %description mucous
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This package contains a Curses GUI for
-Museek+.
+network. It is written in C++.
+
+This package contains a Curses GUI for Museek+.
 
 %package murmur
 Summary:	A PyGTK Museek+ client
@@ -73,8 +79,9 @@ Requires:	python-pygtk-gtk
 
 %description murmur
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This package contains a PyGTK GUI for
-Museek+.
+network. It is written in C++.
+
+This package contains a PyGTK GUI for Museek+.
 
 %package museeq
 Summary:	A Qt Museek+ client
@@ -84,8 +91,9 @@ Requires:	python-PyQt4
 
 %description museeq
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This package contains a Qt GUI for
-Museek+.
+network. It is written in C++.
+
+This package contains a Qt GUI for Museek+.
 
 %package tools
 Summary:	Python tools for Museek+
@@ -95,8 +103,9 @@ Requires:	%{name}-core = %{version}-%{release}
 
 %description tools
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
-network. It is written in C++. This package contains Python tools for
-Museek+.
+network. It is written in C++.
+
+This package contains Python tools for Museek+.
 
 %prep
 %setup -q
