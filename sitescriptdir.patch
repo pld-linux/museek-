@@ -1,0 +1,44 @@
+--- museek+-0.2/Mucipher/PyMucipher/CMakeLists.txt~	2008-10-07 19:58:27.000000000 +0300
++++ museek+-0.2/Mucipher/PyMucipher/CMakeLists.txt	2009-09-05 21:12:34.623680910 +0300
+@@ -37,7 +37,7 @@
+   ${CMAKE_CURRENT_BINARY_DIR}/mucipherc.py
+   ${CMAKE_CURRENT_BINARY_DIR}/_mucipherc.so
+ )
+-EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('lib', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
++EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('share', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
+ 
+ if (NOT sitepackages OR error)
+ 	MESSAGE(FATAL_ERROR "Failed to find Python's site-packages directory" ${sitepackages} ${error})
+--- museek+-0.2/python-bindings/CMakeLists.txt~	2008-09-22 11:49:33.000000000 +0300
++++ museek+-0.2/python-bindings/CMakeLists.txt	2009-09-05 21:12:58.263288468 +0300
+@@ -18,7 +17,7 @@
+ museek/driver.py
+ )
+ 
+-EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('lib', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
++EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('share', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
+ 
+ if (NOT sitepackages OR error)
+ 	MESSAGE(FATAL_ERROR "Failed to find Python's site-packages directory" ${sitepackages} ${error})
+--- museek+-0.2/mucous/CMakeLists.txt~	2008-09-22 11:49:33.000000000 +0300
++++ museek+-0.2/mucous/CMakeLists.txt	2009-09-05 21:13:09.923689706 +0300
+@@ -28,7 +26,7 @@
+   ${PYMUCOUS_FILES}
+ )
+ 
+-EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('lib', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
++EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('share', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
+ 
+ if (NOT sitepackages OR error)
+ 	MESSAGE(FATAL_ERROR "Failed to find Python's site-packages directory" ${sitepackages} ${error})
+--- museek+-0.2/murmur/CMakeLists.txt~	2008-09-22 11:49:33.000000000 +0300
++++ museek+-0.2/murmur/CMakeLists.txt	2009-09-05 21:13:18.836605046 +0300
+@@ -25,7 +22,7 @@
+   ${PYMURMUR_FILES}
+ )
+ 
+-EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('lib', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
++EXECUTE_PROCESS(COMMAND python -c "import sys; import os; print os.path.join('share', 'python' + str(sys.version_info[0]) + '.' + str(sys.version_info[1]), 'site-packages')" museek OUTPUT_VARIABLE sitepackages OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_VARIABLE error)
+ 
+ if (NOT sitepackages OR error)
+ 	MESSAGE(FATAL_ERROR "Failed to find Python's site-packages directory" ${sitepackages} ${error})
