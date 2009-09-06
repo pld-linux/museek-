@@ -1,7 +1,7 @@
 Summary:	A Qt soulseek client for Linux
 Name:		museek+
 Version:	0.2
-Release:	0.2
+Release:	0.3
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
@@ -69,7 +69,7 @@ Summary:	A PyGTK Museek+ client
 Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
-Requires:	python-pygtk
+Requires:	python-pygtk-gtk
 
 %description murmur
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
@@ -80,7 +80,7 @@ Museek+.
 Summary:	A Qt Museek+ client
 Group:		Applications/Networking
 Requires:	%{name}-core = %{version}-%{release}
-Requires:	PyQt
+Requires:	python-PyQt4
 
 %description museeq
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
