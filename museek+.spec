@@ -1,7 +1,7 @@
 Summary:	A Qt soulseek client for Linux
 Name:		museek+
 Version:	0.2
-Release:	0.1
+Release:	0.2
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
@@ -9,7 +9,6 @@ Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
 Patch0:		sitescriptdir.patch
 URL:		http://www.museek-plus.org/
 BuildRequires:	cmake
-BuildRequires:	sed >= 4.0
 BuildRequires:	gamin-devel
 BuildRequires:	libevent-devel
 BuildRequires:	libvorbis-devel
@@ -19,8 +18,15 @@ BuildRequires:	python-PyXML
 BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
 BuildRequires:	qt4-build
+BuildRequires:	sed >= 4.0
 BuildRequires:	swig
 BuildRequires:	zlib-devel
+Requires:	%{name}-bindings = %{version}-%{release}
+Requires:	%{name}-core = %{version}-%{release}
+Requires:	%{name}-mucous = %{version}-%{release}
+Requires:	%{name}-murmur = %{version}-%{release}
+Requires:	%{name}-museeq = %{version}-%{release}
+Requires:	%{name}-tools = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
