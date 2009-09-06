@@ -64,9 +64,6 @@ Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
 Requires:	python-pygtk
-%if 0%{?fedora} >= 10
-BuildArch:	noarch
-%endif
 
 %description murmur
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
@@ -89,9 +86,6 @@ Summary:	Python tools for Museek+
 Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
-%if 0%{?fedora} >= 10
-BuildArch:	noarch
-%endif
 
 %description tools
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
