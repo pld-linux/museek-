@@ -1,7 +1,7 @@
 Summary:	A Qt soulseek client for Linux
 Name:		museek+
 Version:	0.2
-Release:	0.3
+Release:	0.4
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
@@ -18,6 +18,8 @@ BuildRequires:	python-PyXML
 BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
 BuildRequires:	qt4-build
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	sed >= 4.0
 BuildRequires:	swig
 BuildRequires:	zlib-devel
@@ -128,6 +130,10 @@ rm -rf $RPM_BUILD_ROOT
 	-C build \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -151,10 +157,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files bindings
 %defattr(644,root,root,755)
-%{py_sitescriptdir}/_mucipherc.so
-%{py_sitescriptdir}/mucipher.py*
-%{py_sitescriptdir}/mucipherc.py*
-%{py_sitescriptdir}/museek
+# XXX
+%attr(755,root,root) %{py_sitescriptdir}/_mucipherc.so
+%{py_sitescriptdir}/mucipher.py[co]
+%{py_sitescriptdir}/mucipherc.py[co]
+%dir %{py_sitescriptdir}/museek
+%{py_sitescriptdir}/museek/*.py[co]
 
 %files tools
 %defattr(644,root,root,755)
@@ -168,14 +176,16 @@ rm -rf $RPM_BUILD_ROOT
 %files mucous
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mucous
-%{py_sitescriptdir}/pymucous
+%dir %{py_sitescriptdir}/pymucous
+%{py_sitescriptdir}/pymucous/*.py[co]
 %{_mandir}/man1/mucous.1*
 
 %files murmur
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/murmur
 %attr(755,root,root) %{_bindir}/musetup-gtk
-%{py_sitescriptdir}/pymurmur
+%dir %{py_sitescriptdir}/pymurmur
+%{py_sitescriptdir}/pymurmur/*.py[co]
 %{_desktopdir}/murmur.desktop
 %{_desktopdir}/musetup-gtk.desktop
 %{_mandir}/man1/murmur.1*
