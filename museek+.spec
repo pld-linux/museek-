@@ -1,7 +1,7 @@
 Summary:	A Qt soulseek client for Linux
 Name:		museek+
 Version:	0.2
-Release:	0.4
+Release:	0.5
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
@@ -136,6 +136,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_postclean
 
 %clean
@@ -161,10 +163,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files bindings
 %defattr(644,root,root,755)
-# XXX
-%attr(755,root,root) %{py_sitescriptdir}/_mucipherc.so
-%{py_sitescriptdir}/mucipher.py[co]
-%{py_sitescriptdir}/mucipherc.py[co]
+%attr(755,root,root) %{py_sitedir}/_mucipherc.so
+%{py_sitedir}/mucipher.py[co]
+%{py_sitedir}/mucipherc.py[co]
 %dir %{py_sitescriptdir}/museek
 %{py_sitescriptdir}/museek/*.py[co]
 
