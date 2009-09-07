@@ -8,6 +8,9 @@ Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
 # Source0-md5:	66d3eab341e1cd6642f83d329a18c3b5
 Patch0:		sitescriptdir.patch
 URL:		http://www.museek-plus.org/
+BuildRequires:	QtNetwork-devel
+BuildRequires:	QtScript-devel
+BuildRequires:	QtUiTools-devel
 BuildRequires:	cmake
 BuildRequires:	gamin-devel
 BuildRequires:	libevent-devel
@@ -18,6 +21,7 @@ BuildRequires:	python-PyXML
 BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
 BuildRequires:	qt4-build
+BuildRequires:	qt4-linguist
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	sed >= 4.0
