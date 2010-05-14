@@ -23,10 +23,12 @@ BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-linguist
+BuildRequires:	qt4-qmake
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	sed >= 4.0
 BuildRequires:	swig
+BuildRequires:	swig-python
 BuildRequires:	zlib-devel
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
