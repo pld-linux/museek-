@@ -1,10 +1,10 @@
 Summary:	A Qt soulseek client for Linux
 Name:		museek+
 Version:	0.2
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://dl.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
 # Source0-md5:	66d3eab341e1cd6642f83d329a18c3b5
 Patch0:		sitescriptdir.patch
 Patch1:		%{name}-desktop.patch
@@ -12,7 +12,7 @@ URL:		http://www.museek-plus.org/
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtScript-devel
 BuildRequires:	QtUiTools-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.8.2-2
 BuildRequires:	gamin-devel
 BuildRequires:	libevent-devel
 BuildRequires:	libvorbis-devel
