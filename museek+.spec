@@ -1,4 +1,5 @@
 Summary:	A Qt soulseek client for Linux
+Summary(pl.UTF-8):	Oparty na Qt klient soulseek dla Linuksa
 Name:		museek+
 Version:	0.2
 Release:	6
@@ -45,8 +46,16 @@ network. It is written in C++.
 This is a meta-package which will install museek daemon and all
 available clients.
 
+%description -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten metapakiet instaluje demona oraz wszystkich dostępnych klientów
+museek.
+
 %package core
 Summary:	Museek+ core package
+Summary(pl.UTF-8):	Podstawowy pakiet Museek+
 Group:		Applications/Networking
 
 %description core
@@ -56,8 +65,16 @@ network. It is written in C++.
 This package contains the museek daemon, setup tools and other
 essential files.
 
+%description core -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten pakiet zawiera demona museek, narzędzia do konfiguracji oraz inne
+istotne pliki.
+
 %package bindings
 Summary:	Python bindings for Museek+
+Summary(pl.UTF-8):	Wiązania Pythona do Museek+
 Group:		Applications/Networking
 Requires:	%{name}-core = %{version}-%{release}
 
@@ -67,8 +84,15 @@ network. It is written in C++.
 
 This package contains Python bindings for Museek+.
 
+%description bindings -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten pakiet zawiera wiązania Pythona do Museek+.
+
 %package mucous
 Summary:	A Curses Museek+ client
+Summary(pl.UTF-8):	Klient Museek+ oparty na Curses
 Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
@@ -79,8 +103,15 @@ network. It is written in C++.
 
 This package contains a Curses GUI for Museek+.
 
+%description mucous -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten pakiet zawiera interfejs użytkownika do Museek+ oparty na Curses.
+
 %package murmur
 Summary:	A PyGTK Museek+ client
+Summary(pl.UTF-8):	Klient Museek+ oparty na PyGTK
 Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
@@ -92,8 +123,16 @@ network. It is written in C++.
 
 This package contains a PyGTK GUI for Museek+.
 
+%description murmur -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten pakiet zawiera graficzny interfejs użytkownika do Museek+ oparty
+na PyGTK.
+
 %package museeq
 Summary:	A Qt Museek+ client
+Summary(pl.UTF-8):	Klient Museek+ oparty na Qt
 Group:		Applications/Networking
 Requires:	%{name}-core = %{version}-%{release}
 Requires:	python-PyQt4
@@ -104,8 +143,16 @@ network. It is written in C++.
 
 This package contains a Qt GUI for Museek+.
 
+%description museeq -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten pakiet zawiera graficzny interfejs użytkownika do Museek+ oparty
+na Qt.
+
 %package tools
 Summary:	Python tools for Museek+
+Summary(pl.UTF-8):	Pythonowe narzędzia dla Museek+
 Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
@@ -115,6 +162,12 @@ Museek+ is a file-sharing application for the Soulseek peer-to-peer
 network. It is written in C++.
 
 This package contains Python tools for Museek+.
+
+%description tools -l pl.UTF-8
+Museek+ to aplikacja do współdzielenia plików dla sieci peer-to-peer
+Soulseek. Jest napisana w C++.
+
+Ten pakiet zawiera pythonowe narzędzia dla Museek+.
 
 %prep
 %setup -q
