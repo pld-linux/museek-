@@ -2,31 +2,34 @@ Summary:	A Qt soulseek client for Linux
 Summary(pl.UTF-8):	Oparty na Qt klient soulseek dla Linuksa
 Name:		museek+
 Version:	0.2
-Release:	6
+Release:	7
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://downloads.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
 # Source0-md5:	66d3eab341e1cd6642f83d329a18c3b5
 Patch0:		sitescriptdir.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-python.patch
 URL:		http://www.museek-plus.org/
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtScript-devel
-BuildRequires:	QtUiTools-devel
+BuildRequires:	QtNetwork-devel >= 4
+BuildRequires:	QtScript-devel >= 4
+BuildRequires:	QtUiTools-devel >= 4
 BuildRequires:	cmake >= 2.8.2-2
 BuildRequires:	gamin-devel
 BuildRequires:	libevent-devel
+BuildRequires:	libstdc++-devel >= 6:4.3
 BuildRequires:	libvorbis-devel
-BuildRequires:	libxml++-devel
-BuildRequires:	libxml2-devel
+BuildRequires:	libxml++2-devel >= 2.6
+BuildRequires:	libxml2-devel >= 2
+BuildRequires:	pkgconfig
 BuildRequires:	python-PyXML
 BuildRequires:	python-devel
-BuildRequires:	python-pygtk-devel
-BuildRequires:	qt4-build
-BuildRequires:	qt4-linguist
-BuildRequires:	qt4-qmake
+BuildRequires:	python-pygtk-devel >= 1:2.0
+BuildRequires:	qt4-build >= 4
+BuildRequires:	qt4-linguist >= 4
+BuildRequires:	qt4-qmake >= 4
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	sed >= 4.0
 BuildRequires:	swig
 BuildRequires:	swig-python
@@ -57,6 +60,7 @@ museek.
 Summary:	Museek+ core package
 Summary(pl.UTF-8):	Podstawowy pakiet Museek+
 Group:		Applications/Networking
+Requires:	libxml++2 >= 2.6
 
 %description core
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
@@ -115,7 +119,7 @@ Summary(pl.UTF-8):	Klient Museek+ oparty na PyGTK
 Group:		Applications/Networking
 Requires:	%{name}-bindings = %{version}-%{release}
 Requires:	%{name}-core = %{version}-%{release}
-Requires:	python-pygtk-gtk
+Requires:	python-pygtk-gtk >= 2:2.0
 
 %description murmur
 Museek+ is a file-sharing application for the Soulseek peer-to-peer
@@ -135,6 +139,7 @@ Summary:	A Qt Museek+ client
 Summary(pl.UTF-8):	Klient Museek+ oparty na Qt
 Group:		Applications/Networking
 Requires:	%{name}-core = %{version}-%{release}
+# for musetup-qt
 Requires:	python-PyQt4
 
 %description museeq
@@ -173,22 +178,25 @@ Ten pakiet zawiera pythonowe narzędzia dla Museek+.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 grep -r /usr/bin/env . -l | xargs sed -i -e '1s,#!.*env python,#!%{__python},'
 
 %build
 mkdir build
 cd build
-%cmake \
+CXXFLAGS="%{rpmcxxflags} -std=c++0x"
+%cmake .. \
 	-DEVERYTHING=1 \
 	-DMANDIR=%{_mandir} \
-	..
-%{__make} \
-	VERBOSE=1
+	-DPYTHON_EXECUTABLE:PATH=%{__python}
+
+%{__make}
+#	VERBOSE=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
-	-C build \
+
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
@@ -205,7 +213,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files core
 %defattr(644,root,root,755)
-%doc COPYING CREDITS LICENSE README TODO
+%doc CREDITS LICENSE README TODO
 %attr(755,root,root) %{_bindir}/muscan
 %attr(755,root,root) %{_bindir}/muscand
 %attr(755,root,root) %{_bindir}/museekd
@@ -237,6 +245,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files mucous
 %defattr(644,root,root,755)
+%doc mucous/MAINTAINERS
 %attr(755,root,root) %{_bindir}/mucous
 %dir %{py_sitescriptdir}/pymucous
 %{py_sitescriptdir}/pymucous/*.py[co]
@@ -244,6 +253,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files murmur
 %defattr(644,root,root,755)
+%doc murmur/{CHANGELOG,MAINTAINERS}
 %attr(755,root,root) %{_bindir}/murmur
 %attr(755,root,root) %{_bindir}/musetup-gtk
 %dir %{py_sitescriptdir}/pymurmur
