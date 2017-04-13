@@ -2,7 +2,7 @@ Summary:	A Qt soulseek client for Linux
 Summary(pl.UTF-8):	Oparty na Qt klient soulseek dla Linuksa
 Name:		museek+
 Version:	0.2
-Release:	7
+Release:	8
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://downloads.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
@@ -10,6 +10,8 @@ Source0:	http://downloads.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
 Patch0:		sitescriptdir.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-python.patch
+Patch3:		%{name}-libevent.patch
+Patch4:		%{name}-c++.patch
 URL:		http://www.museek-plus.org/
 BuildRequires:	QtNetwork-devel >= 4
 BuildRequires:	QtScript-devel >= 4
@@ -179,6 +181,8 @@ Ten pakiet zawiera pythonowe narzędzia dla Museek+.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 grep -r /usr/bin/env . -l | xargs sed -i -e '1s,#!.*env python,#!%{__python},'
 
 %build
