@@ -1,0 +1,19 @@
+--- museek+-0.2/NewNet/nnsocket.h.orig	2009-01-20 11:27:08.000000000 +0100
++++ museek+-0.2/NewNet/nnsocket.h	2017-04-13 21:59:40.229429186 +0200
+@@ -26,6 +26,7 @@
+ #include "nnweakrefptr.h"
+ #include "nnratelimiter.h"
+ #include <event.h>
++#include <cstring>
+ 
+ namespace NewNet
+ {
+@@ -86,7 +87,7 @@
+               m_DataWaiting(false)
+     {
+         m_EventData = new struct event;
+-        m_EventData->ev_flags = 0; // This event has not been initialized
++        memset(m_EventData, 0, sizeof(struct event));
+     }
+ 
+     //! Return the associated reactor.
