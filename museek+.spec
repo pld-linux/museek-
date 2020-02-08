@@ -2,7 +2,7 @@ Summary:	A Qt soulseek client for Linux
 Summary(pl.UTF-8):	Oparty na Qt klient soulseek dla Linuksa
 Name:		museek+
 Version:	0.2
-Release:	8
+Release:	9
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://downloads.sourceforge.net/museek-plus/%{name}-%{version}.tar.bz2
